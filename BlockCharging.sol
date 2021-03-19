@@ -25,7 +25,7 @@ contract BlockCharging
         State = StateType.ChargerAvailable;
     }
 
-    function MakeOffer(int offerPrice) public
+    function PlaceOrder(int offerPrice) public
     {
         if (offerPrice == 0)
         {
@@ -63,7 +63,7 @@ contract BlockCharging
         State = StateType.ChargerAvailable;
     }
 
-    function AcceptOffer() public
+    function AcceptOrder() public
     {
         if ( msg.sender != InstanceOwner )
         {

@@ -1,7 +1,7 @@
 {
   "ApplicationName": "BlockCharging",
-  "DisplayName": "Simple Marketplace",
-  "Description": "Allows a simple transaction between a seller and a buyer in a marketplace.",
+  "DisplayName": "Simple e-mobility Charging Marketplace",
+  "Description": "Allows charinging services transactions between a seller and a buyer in a marketplace.",
   "ApplicationRoles": [
     {
       "Name": "Owner",
@@ -15,7 +15,7 @@
   "Workflows": [
     {
       "Name": "BlockCharging",
-      "DisplayName": "Simple Marketplace",
+      "DisplayName": "E-mobility Marketplace",
       "Description": "Handles the business logic for a simple buyer-seller scenario.",
       "Initiators": [ "Owner" ],
       "StartState":  "ChargerAvailable",
@@ -91,7 +91,7 @@
       },
       "Functions": [
         {
-          "Name": "MakeOffer",
+          "Name": "PlaceOrder",
           "DisplayName": "Make Offer",
           "Description": "Make an offer",
           "Parameters": [
@@ -106,7 +106,7 @@
           ]
         },
         {
-          "Name": "AcceptOffer",
+          "Name": "AcceptOrder",
           "DisplayName": "Accept Offer",
           "Description": "Accept the offer made",
           "Parameters": []
@@ -136,7 +136,7 @@
               "AllowedRoles": [ "Buyer" ],
               "AllowedInstanceRoles": [],
               "Description": "Select Charger",
-              "Function": "MakeOffer",
+              "Function": "PlaceOrder",
               "NextStates": [ "OrderPlaced" ],
               "DisplayName": "Place Order"
             }
@@ -153,7 +153,7 @@
               "AllowedRoles": [ ],
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Accept the proposed order for charging",
-              "Function": "AcceptOffer",
+              "Function": "AcceptOrder",
               "NextStates": [ "Charging" ],
               "DisplayName": "Accept Order"
             },
