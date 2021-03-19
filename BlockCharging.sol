@@ -5,7 +5,8 @@ contract BlockCharging
     enum StateType { 
       ChargerAvailable,
       OrderPlaced,
-      Charging 
+      Charging,
+      ChargingComplete
     }
 
     address public InstanceOwner;
@@ -69,6 +70,21 @@ contract BlockCharging
             revert();
         }
 
+        State = StateType.Charging;
+    }
+    function FinishCharging() public
+    {
+        if (State != StateType.Charging)
+        {
+            revert();
+        }
+
+        if (InstanceOwner == msg.sender)
+        {
+            revert();
+        }
+        
+        InstanceBuyer = msg.sender;
         State = StateType.Charging;
     }
 }
