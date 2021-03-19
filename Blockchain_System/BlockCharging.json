@@ -45,14 +45,6 @@
           }
         },
         {
-          "Name": "OfferPrice",
-          "DisplayName": "Offer Price",
-          "Description": "The price being offered for the asset",
-          "Type": {
-            "Name": "money"
-          }
-        },
-        {
           "Name": "InstanceBuyer",
           "DisplayName": "Instance Buyer",
           "Description": "The user that places an offer for this asset",
@@ -94,16 +86,7 @@
           "Name": "PlaceOrder",
           "DisplayName": "Make Offer",
           "Description": "Make an offer",
-          "Parameters": [
-            {
-              "Name": "offerPrice",
-              "Description": "Offer Price",
-              "DisplayName": "Offer Price",
-              "Type": {
-                "Name": "money"
-              }
-            }
-          ]
+          "Parameters": []
         },
         {
           "Name": "AcceptOrder",
@@ -122,7 +105,7 @@
           "DisplayName": "Finish Charging",
           "Description": "Finish the charging operation.",
           "Parameters": []
-        },
+        }
       ],
       "States": [
         {
@@ -173,7 +156,16 @@
           "Description": "Ongoing charging operation.",
           "PercentComplete": 80,
           "Style": "Success",
-          "Transitions": []
+          "Transitions": [
+            {
+              "AllowedRoles": [ "Buyer" ],
+              "AllowedInstanceRoles": [],
+              "Description": "Finish Charging",
+              "Function": "FinishCharging",
+              "NextStates": [ "ChargingComplete" ],
+              "DisplayName": "Finish Charging"
+            }
+          ]
         },
         {
           "Name": "ChargingComplete",
@@ -181,16 +173,7 @@
           "Description": "Charging complete.",
           "PercentComplete": 100,
           "Style": "Success",
-          "Transitions": [
-            {
-              "AllowedRoles": [ "Buyer" ],
-              "AllowedInstanceRoles": [],
-              "Description": "Finish Charging",
-              "Function": "FinishCharging",
-              "NextStates": [ "ChargerAvailable" ],
-              "DisplayName": "Finish Charging"
-            }
-          ]
+          "Transitions": []
         }
       ]
     }

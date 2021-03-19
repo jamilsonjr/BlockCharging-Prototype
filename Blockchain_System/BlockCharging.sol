@@ -15,7 +15,7 @@ contract BlockCharging
     StateType public State;
 
     address public InstanceBuyer;
-    int public OfferPrice;
+
 
     constructor(string memory description, int price) public
     {
@@ -25,13 +25,8 @@ contract BlockCharging
         State = StateType.ChargerAvailable;
     }
 
-    function PlaceOrder(int offerPrice) public
+    function PlaceOrder() public
     {
-        if (offerPrice == 0)
-        {
-            revert();
-        }
-
         if (State != StateType.ChargerAvailable)
         {
             revert();
@@ -43,7 +38,6 @@ contract BlockCharging
         }
 
         InstanceBuyer = msg.sender;
-        OfferPrice = offerPrice;
         State = StateType.OrderPlaced;
     }
 
@@ -85,6 +79,6 @@ contract BlockCharging
         }
         
         InstanceBuyer = msg.sender;
-        State = StateType.Charging;
+        State = StateType.ChargingComplete;
     }
 }
