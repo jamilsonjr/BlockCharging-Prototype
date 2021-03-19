@@ -3,9 +3,9 @@ pragma solidity >=0.4.25 <0.6.0;
 contract BlockCharging
 {
     enum StateType { 
-      ItemAvailable,
-      OfferPlaced,
-      Accepted
+      ChargerAvailable,
+      OrderPlaced,
+      Charging 
     }
 
     address public InstanceOwner;
@@ -21,7 +21,7 @@ contract BlockCharging
         InstanceOwner = msg.sender;
         AskingPrice = price;
         Description = description;
-        State = StateType.ItemAvailable;
+        State = StateType.ChargerAvailable;
     }
 
     function MakeOffer(int offerPrice) public
@@ -31,7 +31,7 @@ contract BlockCharging
             revert();
         }
 
-        if (State != StateType.ItemAvailable)
+        if (State != StateType.ChargerAvailable)
         {
             revert();
         }
@@ -43,12 +43,12 @@ contract BlockCharging
 
         InstanceBuyer = msg.sender;
         OfferPrice = offerPrice;
-        State = StateType.OfferPlaced;
+        State = StateType.OrderPlaced;
     }
 
     function Reject() public
     {
-        if ( State != StateType.OfferPlaced )
+        if ( State != StateType.OrderPlaced )
         {
             revert();
         }
@@ -59,7 +59,7 @@ contract BlockCharging
         }
 
         InstanceBuyer = 0x0000000000000000000000000000000000000000;
-        State = StateType.ItemAvailable;
+        State = StateType.ChargerAvailable;
     }
 
     function AcceptOffer() public
@@ -69,6 +69,6 @@ contract BlockCharging
             revert();
         }
 
-        State = StateType.Accepted;
+        State = StateType.Charging;
     }
 }

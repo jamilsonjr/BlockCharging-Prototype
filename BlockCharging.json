@@ -121,40 +121,40 @@
       "States": [
         {
           "Name": "ChargerAvailable",
-          "DisplayName": "Item Available",
-          "Description": "The item is available",
+          "DisplayName": "Charger Available",
+          "Description": "The charger is available for operation.",
           "PercentComplete": 20,
           "Style": "Success",
           "Transitions": [
             {
               "AllowedRoles": [ "Buyer" ],
               "AllowedInstanceRoles": [],
-              "Description": "Make an offer for this asset",
+              "Description": "Select Charger",
               "Function": "MakeOffer",
               "NextStates": [ "OrderPlaced" ],
-              "DisplayName": "Make Offer"
+              "DisplayName": "Place Order"
             }
           ]
         },
         {
           "Name": "OrderPlaced",
-          "DisplayName": "Offer Placed",
-          "Description": "Offer has been placed for the item",
+          "DisplayName": "Order Placed",
+          "Description": "Order has been placed for charging",
           "PercentComplete": 40,
           "Style": "Success",
           "Transitions": [
             {
               "AllowedRoles": [ ],
               "AllowedInstanceRoles": [ "InstanceOwner" ],
-              "Description": "Accept the proposed offer for the item",
+              "Description": "Accept the proposed order for charging",
               "Function": "AcceptOffer",
               "NextStates": [ "Charging" ],
-              "DisplayName": "Accept Offer"
+              "DisplayName": "Accept Order"
             },
             {
               "AllowedRoles": [ ],
               "AllowedInstanceRoles": [ "InstanceOwner" ],
-              "Description": "Reject the proposed offer for the item",
+              "Description": "Reject the proposed order for the item",
               "Function": "Reject",
               "NextStates": [ "ChargerAvailable" ],
               "DisplayName": "Reject"
@@ -164,7 +164,7 @@
         {
           "Name": "Charging",
           "DisplayName": "Charging",
-          "Description": "Asset transfer process is complete",
+          "Description": "Ongoing charging operation.",
           "PercentComplete": 80,
           "Style": "Success",
           "Transitions": []
