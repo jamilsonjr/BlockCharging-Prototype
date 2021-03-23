@@ -14,7 +14,7 @@ To establish this link, our team of innovators developed a novel mobile applicat
 
 Supported by Ethereum Smart Contracts, the platform creates an independent marketplace where more competitive energy prices can be adopted, representing revenues for this company and savings for the car owners, a clear **WIN WIN situation**!  
 <p align="center">
-  <img width=718" alt="scheme" src="https://user-images.githubusercontent.com/47533831/112080473-fb65f980-8b79-11eb-8f7c-82a0ea162b4a.png">
+  <img width=818" alt="scheme" src="https://user-images.githubusercontent.com/47533831/112080473-fb65f980-8b79-11eb-8f7c-82a0ea162b4a.png">
 </p>
 
 ## Technologies
@@ -27,5 +27,5 @@ In this repository:
 The Blockcharging team is composed of multicultural, multi-background and young innovators. Our main goal is to transform the way that we charge our vehicles with breakthrough technology. We believe that the future is electric!
 
 <p align="center">
-  <img width="897" alt="we" src="https://user-images.githubusercontent.com/47533831/112080169-64993d00-8b79-11eb-8d57-3cdf42fadb89.PNG">
+  <img width="950" alt="we" src="https://user-images.githubusercontent.com/47533831/112080169-64993d00-8b79-11eb-8d57-3cdf42fadb89.PNG">
 </p>
